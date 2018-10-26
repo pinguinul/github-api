@@ -1,5 +1,4 @@
 import { combineEpics } from 'redux-observable';
-import { combineReducers } from 'redux';
 
 // epics
 import { fetchProfilesEpic } from './epics';
@@ -7,12 +6,10 @@ import { fetchProfilesEpic } from './epics';
 // reducers
 import app from './reducers';
 
-
+// rootEpic
 export const rootEpic = combineEpics(
     fetchProfilesEpic
 );
 
-export const rootReducer = combineReducers({
-    app,
-});
-
+// rootReducer
+export const rootReducer = app;

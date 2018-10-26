@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-// import { fetchProfiles } from '../../actions';
 import { fetchProfiles } from '../../epics';
 import './app.less';
 import Repos from '../repos/repos';
@@ -67,15 +66,12 @@ class App extends Component {
     }
 
     render() {
-        // console.log(this.props);
-        console.log('render');
         const loadingState = this.props.isLoading ?
             <div className="loading-state text-center">Fetching repos...</div> :
             null;
 
         let repos;
         if (this.props.repos.length) {
-            // console.log(666);
             repos = this.props.repos.map(repo =>
                 <li key={repo.id} className="list-group-item">
                     <a target="_blank" rel="noopener noreferrer" href={repo.svn_url}>{repo.name}</a>
